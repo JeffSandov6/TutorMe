@@ -20,5 +20,4 @@
     <string name="username">Username</string>
     <string name="set_schedule">Set Schedule</string>
     <string name="picture">\@tools:sample/avatars[0]</string>
-
 </resources>
