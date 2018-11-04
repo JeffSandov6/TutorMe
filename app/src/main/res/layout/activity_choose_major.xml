@@ -11,6 +11,7 @@
             android:text="@string/profile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="goToBoard"
             android:id="@+id/profilebutton" android:layout_marginEnd="26dp"
             android:layout_marginTop="29dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginRight="26dp"
@@ -19,6 +20,7 @@
     <Button
             android:text="@string/computer_science"
             android:layout_width="300dp"
+            android:onClick="goToBoard"
             android:layout_height="0dp" android:id="@+id/coscbutton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5"
@@ -27,6 +29,8 @@
     <Button
             android:text="@string/business"
             android:layout_width="300dp"
+            android:onClick="goToBoard"
+
             android:layout_height="0dp" android:id="@+id/businessbutton"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/coscbutton"
@@ -34,6 +38,8 @@
     <Button
             android:text="@string/physics"
             android:layout_width="300dp"
+            android:onClick="goToBoard"
+
             android:layout_height="0dp" android:id="@+id/physicsbutton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5"
@@ -42,6 +48,8 @@
     <Button
             android:text="@string/biology"
             android:layout_width="300dp"
+            android:onClick="goToBoard"
+
             android:layout_height="0dp" android:id="@+id/biologybutton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
