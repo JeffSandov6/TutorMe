@@ -231,15 +231,7 @@ public class profile extends AppCompatActivity {
             allCoursesAsText.add(matchingSessionsAsTest.toString());
             System.out.println(matchingSessionsAsTest.toString());
 
-//            for (Map.Entry<String, String> entry : currMatchCourseData.entrySet()) {
-//
-//
-//
-//                Log.d("the key is ", entry.getKey());
-//                Log.d("the value is ", entry.getValue());
-//
-//
-//            }
+
 
 
         }
