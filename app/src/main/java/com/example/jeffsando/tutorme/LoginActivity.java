@@ -59,9 +59,11 @@ public class LoginActivity extends AppCompatActivity {
                                                     Toast.LENGTH_LONG).show();
                                             Log.v("error", task.getResult().toString());
                                         } else {
-                                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                            Intent intent = new Intent(LoginActivity.this, chooseMajor.class);
                                             startActivity(intent);
+                                            Log.d("Login worked", "testtt");
                                             finish();
+
                                         }
                                         PD.dismiss();
                                     }
@@ -91,7 +93,9 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override    protected void onResume() {
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            Log.d("get current user ", "(login)");
+
+            startActivity(new Intent(LoginActivity.this, chooseMajor.class));
             finish();
         }
         super.onResume();

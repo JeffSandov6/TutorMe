@@ -25,6 +25,10 @@
         </activity>
         <activity android:name=".chooseMajor" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".profile" />
+
+
+
     </application>
 
 </manifest>
