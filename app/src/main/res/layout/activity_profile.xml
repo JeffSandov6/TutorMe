@@ -7,4 +7,31 @@
         android:layout_height="match_parent"
         tools:context=".profile">
 
+    <ImageView
+            android:layout_width="202dp"
+            android:layout_height="192dp" tools:srcCompat="@tools:sample/avatars[0]"
+            android:id="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="42dp" app:layout_constraintBottom_toTopOf="@+id/username"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription='@color/colorPrimaryDark' android:visibility="visible"
+            android:adjustViewBounds="true"/>
+
+    <TextView
+            android:text="@string/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/username" android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:layout_marginBottom="20dp" app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+            android:text="@string/set_schedule"
+            android:layout_width="165dp"
+            android:layout_height="48dp" android:id="@+id/button2"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/username" android:layout_marginBottom="160dp"
+            app:layout_constraintHorizontal_bias="0.502" app:layout_constraintEnd_toEndOf="parent"/>
 </android.support.constraint.ConstraintLayout>

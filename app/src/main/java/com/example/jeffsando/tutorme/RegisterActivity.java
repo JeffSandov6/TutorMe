@@ -10,19 +10,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.util.*;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword;
+    private EditText inputEmail, inputPassword, inputUsername;
     private FirebaseAuth auth;
     private Button btnSignUp, btnLogin;
     private ProgressDialog PD;
 
+    private DatabaseReference mDatabase;
 
 
     @Override    protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +41,16 @@ public class RegisterActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+            startActivity(new Intent(RegisterActivity.this, chooseMajor.class));
             finish();
         }
 
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
+        inputUsername = (EditText) findViewById(R.id.username);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         btnLogin = (Button) findViewById(R.id.sign_in_button);
 
@@ -50,9 +58,10 @@ public class RegisterActivity extends AppCompatActivity {
             @Override            public void onClick(View view) {
                 final String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
+                final String username = inputUsername.getText().toString();
 
                 try {
-                    if (password.length() > 0 && email.length() > 0) {
+                    if (password.length() > 0 && email.length() > 0 && username.length() > 0) {
                         PD.show();
                         auth.createUserWithEmailAndPassword(email, password)
                                 .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -65,8 +74,23 @@ public class RegisterActivity extends AppCompatActivity {
                                                     Toast.LENGTH_LONG).show();
                                             Log.v("error", task.getResult().toString());
                                         } else {
-                                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                            Intent intent = new Intent(RegisterActivity.this, chooseMajor.class);
+                                            Log.d("Auth worked", "testtt");
+
+
+
+
+                                            FirebaseUser user = task.getResult().getUser();
+                                            final String userID = user.getUid();
+
+                                            //add this to the Firebase Database
+                                            HashMap<String, Object> userInfo = new HashMap<>();
+                                            userInfo.put("email", email);
+                                            userInfo.put("username", username);
+
+                                            mDatabase.child("users").child(userID).setValue(userInfo);
                                             startActivity(intent);
+
                                             finish();
                                         }
                                         PD.dismiss();
