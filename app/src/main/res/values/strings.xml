@@ -28,4 +28,5 @@
     <string name="current">Current Courses</string>
     <string name="update">UPDATE SCHEDULE</string>
     <string name="availabledays">Days available for tutoring</string>
+    <string name="find_sessions">FIND SESSIONS</string>
 </resources>

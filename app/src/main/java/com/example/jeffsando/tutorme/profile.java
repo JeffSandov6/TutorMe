@@ -50,6 +50,14 @@ public class profile extends AppCompatActivity {
                 openSetSchedule();
             }
         });
+
+        Button sessionsbutton = (Button) findViewById(R.id.button3);
+        sessionsbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openJobBoard();
+            }
+        });
     }
 
     public void openSetSchedule() {
@@ -57,12 +65,18 @@ public class profile extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openJobBoard() {
+        //TODO: Enable button to search job board based on
+        //Intent intent = new Intent(this,job_board.class);
+        //startActivity(intent);
+    }
+
 
     public String updateUsername() {
 
         final String userId = auth.getCurrentUser().getUid();
         Log.d("before ", "the listener");
-        Log.d("also useing", userId);
+        Log.d("also using", userId);
 
 
         mDatabase.child("users").child(userId).child("username").addListenerForSingleValueEvent(
