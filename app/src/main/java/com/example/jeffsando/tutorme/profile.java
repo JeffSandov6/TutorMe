@@ -17,11 +17,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
+import java.io.Serializable;
 import java.util.*;
 
 
 
-public class profile extends AppCompatActivity {
+public class profile extends AppCompatActivity implements Serializable {
     private DatabaseReference mDatabase;
     private FirebaseAuth auth;
     String currUsername = "";
@@ -100,6 +101,13 @@ public class profile extends AppCompatActivity {
         getMatchingSessions();
 
         getMatchingDays();
+
+
+        Intent intent = new Intent(profile.this, Main3Activity.class);
+        intent.putExtra("listOfText", allCoursesAsText);
+
+
+        startActivity(intent);
 
 
 
