@@ -20,4 +20,12 @@
     <string name="username">Username</string>
     <string name="set_schedule">Set Schedule</string>
     <string name="picture">\@tools:sample/avatars[0]</string>
+    <string name="course_1">Course 1</string>
+    <string name="course_2">Course 2</string>
+    <string name="course_3">Course 3</string>
+    <string name="course_4">Course 4</string>
+    <string name="hint">hint</string>
+    <string name="current">Current Courses</string>
+    <string name="update">UPDATE SCHEDULE</string>
+    <string name="availabledays">Days available for tutoring</string>
 </resources>
