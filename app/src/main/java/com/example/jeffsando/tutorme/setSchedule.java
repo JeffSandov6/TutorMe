@@ -17,6 +17,11 @@ import android.util.Log;
 
 
 public class setSchedule extends AppCompatActivity {
+
+    private EditText course1, course2, course3, course4;
+
+
+
     ArrayList<String> daysAvailable= new ArrayList<String>();
 
     private DatabaseReference mDatabase;
@@ -43,10 +48,10 @@ public class setSchedule extends AppCompatActivity {
 
     //saves valus
      public void updateSchedule(){
-         EditText Course1 =(EditText)findViewById(R.id.course1);
-         EditText Course2 =(EditText)findViewById(R.id.course2);
-         EditText Course3 =(EditText)findViewById(R.id.course3);
-         EditText Course4 =(EditText)findViewById(R.id.course4);
+         course1 =(EditText)findViewById(R.id.course1);
+         course2=(EditText)findViewById(R.id.course2);
+         course3 =(EditText)findViewById(R.id.course3);
+         course4 =(EditText)findViewById(R.id.course4);
 
          if(((CheckBox) findViewById(R.id.checkBox)).isChecked())
              daysAvailable.add("Monday");
@@ -62,6 +67,16 @@ public class setSchedule extends AppCompatActivity {
              daysAvailable.add("Saturday");
          if(((CheckBox) findViewById(R.id.checkBox7)).isChecked())
              daysAvailable.add("Sunday");
+
+
+
+         final String inputCourse1 = course1.getText().toString();
+         final String inputCourse2 = course2.getText().toString();
+         final String inputCourse3 = course3.getText().toString();
+         final String inputCourse4 = course4.getText().toString();
+
+         setCourses(inputCourse1, inputCourse2, inputCourse3, inputCourse4);
+
 
          if(daysAvailable.size() > 0) {
              setDaysAvailable();
@@ -88,7 +103,37 @@ public class setSchedule extends AppCompatActivity {
 
          daysAvailableHash.put("daysAvailable", daysOpen.toString());
 
-         mDatabase.child("users").child(userId).child("openForTutoring").setValue(daysAvailableHash);
+         mDatabase.child("users").child(userId).child("DaysOpenForTutoring").setValue(daysAvailableHash);
+
+     }
+
+
+     public void setCourses(String c1, String c2, String c3, String c4) {
+         final String userId = auth.getCurrentUser().getUid();
+         HashMap<String, Object> courses = new HashMap<>();
+
+         if(c1.length() != 0) {
+             courses.put("course1", c1);
+         }
+
+         if(c2.length() != 0) {
+             courses.put("course2", c2);
+         }
+
+         if(c3.length() != 0) {
+             courses.put("course3", c3);
+         }
+
+         if(c4.length() != 0) {
+             courses.put("course4", c4);
+         }
+
+
+         if(!courses.isEmpty()) {
+             mDatabase.child("users").child(userId).child("Courses").setValue(courses);
+
+         }
+
 
      }
 
