@@ -59,8 +59,6 @@ public class RegisterActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (!task.isSuccessful()) {
-                                            System.out.print("it failed!");
-
                                             Toast.makeText(
                                                     RegisterActivity.this,
                                                     "Authentication Failed",
@@ -70,7 +68,6 @@ public class RegisterActivity extends AppCompatActivity {
                                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                             startActivity(intent);
                                             finish();
-                                            System.out.print("it worked!");
                                         }
                                         PD.dismiss();
                                     }

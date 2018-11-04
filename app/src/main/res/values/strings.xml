@@ -12,4 +12,10 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_register">Register</string>
+    <string name="computer_science">Register</string>
+    <string name="business">Register</string>
+    <string name="physics">Register</string>
+    <string name="biology">Register</string>
+    <string name="profile">Register</string>
+
 </resources>
