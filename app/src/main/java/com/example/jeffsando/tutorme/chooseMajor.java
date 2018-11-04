@@ -17,6 +17,7 @@ public class chooseMajor extends AppCompatActivity {
         Button profilebutton =(Button) findViewById(R.id.profilebutton);
 
 
+
         profilebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +33,10 @@ public class chooseMajor extends AppCompatActivity {
 
         startActivity(intent);
 
-        finish();
+    }
 
+    public void goToBoard (View view){
+        Intent intent = new Intent (this, activity_table.class);
+        startActivity(intent);
     }
 }
