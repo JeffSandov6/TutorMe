@@ -14,7 +14,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity
+      <!--  <activity
                 android:name=".LoginActivity"
                 android:label="Sign In">
             <intent-filter>
@@ -22,13 +22,26 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
+        </activity> -->
         <activity android:name=".chooseMajor" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".profile" />
         <activity android:name=".setSchedule" />
+        <activity android:name=".activity_table">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".addSession"
+                  android:parentActivityName=".activity_table">
 
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.jeffsando.tutorme.activity_table"/>
+
+        </activity>
     </application>
 
 </manifest>
