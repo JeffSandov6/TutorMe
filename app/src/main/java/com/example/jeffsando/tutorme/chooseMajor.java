@@ -29,13 +29,10 @@ public class chooseMajor extends AppCompatActivity {
 
     public void openProfile(){
         Intent intent = new Intent (chooseMajor.this, profile.class);
-        Log.d("open profile function", "before startActivity");
 
         startActivity(intent);
-        Log.d("open profile function", "middle");
 
         finish();
-        Log.d("open profile function", "after finish");
 
     }
 }

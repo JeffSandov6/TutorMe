@@ -26,7 +26,7 @@
         <activity android:name=".chooseMajor" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".profile" />
-
+        <activity android:name=".setSchedule" />
 
 
     </application>
