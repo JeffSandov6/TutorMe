@@ -81,8 +81,8 @@ public class profile extends AppCompatActivity implements Serializable {
 
     public void openJobBoard() {
         //TODO: Enable button to search job board based on
-        //Intent intent = new Intent(this,job_board.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this,Main3Activity.class);
+       // startActivity(intent);
 
 
         //Get the data from your courses, grab all the courses or whatever
@@ -103,14 +103,11 @@ public class profile extends AppCompatActivity implements Serializable {
         getMatchingDays();
 
 
-        Intent intent = new Intent(profile.this, Main3Activity.class);
-        intent.putExtra("listOfText", allCoursesAsText);
+        //Intent intent = new Intent(profile.this, Main3Activity.class);
+        intent.putStringArrayListExtra("listOfText", allCoursesAsText);
 
 
         startActivity(intent);
-
-
-
 
     }
 

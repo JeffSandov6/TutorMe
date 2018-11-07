@@ -1,11 +1,15 @@
 package com.example.jeffsando.tutorme;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import de.codecrafters.tableview.TableView;
 
@@ -17,40 +21,64 @@ import java.util.List;
 
 import java.util.Scanner;
 public class Main3Activity extends AppCompatActivity implements Serializable {
-    TableView t1;
-    int counter = 0;
-    LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    View rowView = inflater.inflate(R.layout.n1, null);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-
-
         ArrayList<String> listOfText = new ArrayList<String>();
+        Intent i = getIntent();
+        listOfText = i.getStringArrayListExtra("listOfText");
 
-        listOfText = (ArrayList<String>) getIntent().getSerializableExtra("listOfText");
+        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.linLayout);
 
-        System.out.println("setting the text here at");
 
+        Log.d("main3","before For");
+       /* for (int j = 0; j < listOfText.size(); j++) {
+            Log.d("main3","in For");
+
+            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            final View rowView = inflater.inflate(R.layout.n1, mainLayout, false);
+            // Add the new row before the add field button.
+            Log.d("main3","in For,listoftext.get(j) = " + listOfText.get(j) );
+
+            ((TextView)rowView.findViewById(R.id.textView2)).setText(listOfText.get(j));
+
+            mainLayout.addView(rowView,mainLayout.getChildCount() - 1);
+        }*/
+
+
+    }
+    @Override
+    protected void onStart(){
+        super.onStart();
 
         ArrayList<String> Arr = new ArrayList<String>();
 
+        Arr.add("hi");
+        Arr.add("hi");
+        Arr.add("hi");
+        Arr.add("hi");
+        Arr.add("hi");
+        Arr.add("hi");
 
-        for (int i = 0; i < listOfText.size(); i++) {
-            rowView = inflater.inflate(R.layout.n1, null);
+        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.linLayout);
 
-//            ((TextView)rowView.findViewById(R.id.textView2)).setText(listOfText.get(i));
+        for (int j = 0; j < Arr.size(); j++) {
+            Log.d("main3","in For");
+
+            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            final View rowView = inflater.inflate(R.layout.n1, mainLayout,false);
+            // Add the new row before the add field button.
 
             System.out.println("setting the text here at");
+            ((TextView)rowView.findViewById(R.id.textView2)).setText(Arr.get(j));
 
-            ((TextView)rowView.findViewById(R.id.textView2)).setText(Integer.toString(counter));
-
-            t1.addView(rowView);
-            counter++;
-
+            mainLayout.addView(rowView,mainLayout.getChildCount() - 1);
         }
+
 
     }
 }
